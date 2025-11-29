@@ -1,4 +1,6 @@
-#include <iostream>
+#include "include/seq_list.h"
+
 int main() {
-    std::cout << "Hello World";
+    SeqList::test();
+    return 0;
 }

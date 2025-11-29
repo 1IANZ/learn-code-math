@@ -5,7 +5,10 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     add_compile_options(-finput-charset=utf-8)
 endif()
 
-file(GLOB SOURCES "src/*.cpp")
+file(GLOB_RECURSE  SOURCES "src/*.cpp")
 add_executable(Demo ${SOURCES})
 
 target_include_directories(Demo PRIVATE src/include)
+
+
+
