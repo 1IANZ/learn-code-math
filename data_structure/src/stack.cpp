@@ -1,5 +1,16 @@
 #include "include/stack.h"
 
+Stack::Stack() {
+    head = nullptr;
+    size = 0;
+}
+Stack::~Stack() {
+    while (head) {
+        ListNode* temp = head;
+        head = head->next;
+        delete temp;
+    }
+};
 bool Stack::push(E value) {
     ListNode* newNode = new ListNode(value);
     newNode->next = head;
