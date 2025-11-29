@@ -7,5 +7,4 @@ int main() {
     LinkedList::test();
     Stack::test();
     Queue::test();
-    return 0;
 }
