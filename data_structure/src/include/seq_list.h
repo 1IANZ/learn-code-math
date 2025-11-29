@@ -10,9 +10,9 @@ class SeqList {
   public:
     SeqList(int cap = 10);
     ~SeqList();
-    bool insert(int index, E element);
+    bool insert(int index, E value);
     bool remove(int index);
-    int find(E element);
+    int find(E value);
     int get(int index);
     int get_size();
     void display();

@@ -1,4 +1,5 @@
 #include "include/seq_list.h"
+
 using namespace std;
 
 SeqList::SeqList(int cap) {
@@ -11,7 +12,7 @@ SeqList::~SeqList() {
     delete[] data;
 }
 
-bool SeqList::insert(int index, E element) {
+bool SeqList::insert(int index, E value) {
     if (index < 0 || index > size)
         return false;
     if (size >= capacity) {
@@ -24,7 +25,7 @@ bool SeqList::insert(int index, E element) {
     }
     for (int i = size; i > index; i--)
         data[i] = data[i - 1];
-    data[index] = element;
+    data[index] = value;
     size++;
     return true;
 }
@@ -62,6 +63,7 @@ void SeqList::display() {
 }
 
 void SeqList::test() {
+    cout << " == Sequence List == " << endl;
     SeqList list;
     for (int i : {1, 2, 3, 4, 5})
         list.insert(list.get_size(), i);
