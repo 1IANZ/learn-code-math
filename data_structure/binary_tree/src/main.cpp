@@ -1,3 +1,3 @@
-#include <iostream>
+#include "include/bt.h"
 
-int main() { std::cout << "Hello, World!" << std::endl; }
+int main() { BinaryTree::test(); }
