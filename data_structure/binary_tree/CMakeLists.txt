@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10.0)
 project(Demo VERSION 0.1.0 LANGUAGES C CXX)
-
+set(CMAKE_CXX_STANDARD 20)
 if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     add_compile_options(-finput-charset=utf-8)
 endif()
