@@ -1,32 +1,44 @@
 #include "include/bt.h"
+
 #include "include/tree_node.h"
 using namespace std;
 
-BinaryTree::BinaryTree() { root = nullptr; }
+BinaryTree::BinaryTree() {
+    root = nullptr;
+}
 
-BinaryTree::~BinaryTree() { destroy(root); }
-
+BinaryTree::~BinaryTree() {
+    destroy(root);
+}
 void BinaryTree::destroy(TreeNode* node) {
-    if (node == nullptr) return;
+    if (!node)
+        return;
     destroy(node->left);
     destroy(node->right);
     delete node;
 }
+
 bool BinaryTree::insert(E value) {
     TreeNode* newNode = new TreeNode(value);
     if (root == nullptr) {
         root = newNode;
         return true;
     }
-    TreeNode *current = root, *parent = nullptr;
-    while (current != nullptr) {
+    TreeNode* current = root;
+    TreeNode* parent = nullptr;
+
+    while (current) {
         parent = current;
         if (value < current->value) {
             current = current->left;
-        } else {
+        } else if (value > current->value) {
             current = current->right;
+        } else {
+            delete newNode;
+            return false;
         }
     }
+
     if (value < parent->value) {
         parent->left = newNode;
     } else {
@@ -34,76 +46,49 @@ bool BinaryTree::insert(E value) {
     }
     return true;
 }
+
 bool BinaryTree::remove(E value) {
     TreeNode* current = root;
     TreeNode* parent = nullptr;
-    bool isLeftChild = true;
     while (current && current->value != value) {
         parent = current;
-        if (value < current->value) {
+        if (value < current->value)
             current = current->left;
-            isLeftChild = true;
-        } else {
+        else
             current = current->right;
-            isLeftChild = false;
-        }
     }
-    if (!current) return false;
-    // 无子节点
-    if (!current->left && !current->right) {
-        if (current == root) {
-            root = nullptr;
-        } else if (isLeftChild) {
-            parent->left = nullptr;
-        } else {
-            parent->right = nullptr;
-        }
-        delete current;
-        return true;
-    }
-    // 只有左子节点
-    if (!current->right) {
-        if (current == root) {
-            root = current->left;
-        } else if (isLeftChild) {
-            parent->left = current->left;
-        } else {
-            parent->right = current->left;
-        }
-        delete current;
-        return true;
-    }
-    // 只有右子节点
-    if (!current->left) {
-        if (current == root) {
-            root = current->right;
-        } else if (isLeftChild) {
-            parent->left = current->right;
-        } else {
-            parent->right = current->right;
-        }
-        delete current;
-        return true;
-    }
-    // 两个子节点
+
+    if (!current)
+        return false;
+
+    // 节点有两个子节点
     if (current->left && current->right) {
-        TreeNode* parentOfSuccessor = current;
         TreeNode* successor = current->right;
-        while (successor->left != nullptr) {
-            parentOfSuccessor = successor;
+        TreeNode* successorParent = current;
+        while (successor->left) {
+            successorParent = successor;
             successor = successor->left;
         }
         current->value = successor->value;
-        if (parentOfSuccessor->left == successor) {
-            parentOfSuccessor->left = successor->right;
-        } else {
-            parentOfSuccessor->right = successor->right;
-        }
-        delete successor;
-        return true;
+        current = successor;
+        parent = successorParent;
     }
-    return false;
+
+    // 只有一个子节点
+    TreeNode* child = current->left ? current->left : current->right;
+
+    if (!parent) {
+        root = child;
+    } else if (parent->left == current) {
+        parent->left = child;
+    } else {
+        parent->right = child;
+    }
+
+    delete current;
+    return true;
 }
+
 bool BinaryTree::find(int value) {
     TreeNode* current = root;
     while (current) {
@@ -118,7 +103,8 @@ bool BinaryTree::find(int value) {
     return false;
 }
 void BinaryTree::preorder(TreeNode* node) {
-    if (node == nullptr) return;
+    if (node == nullptr)
+        return;
     cout << node->value << " ";
     preorder(node->left);
     preorder(node->right);
@@ -128,7 +114,8 @@ void BinaryTree::preorder() {
     cout << endl;
 }
 void BinaryTree::inorder(TreeNode* node) {
-    if (node == nullptr) return;
+    if (node == nullptr)
+        return;
     inorder(node->left);
     cout << node->value << " ";
     inorder(node->right);
@@ -138,7 +125,8 @@ void BinaryTree::inorder() {
     cout << endl;
 }
 void BinaryTree::postorder(TreeNode* node) {
-    if (node == nullptr) return;
+    if (node == nullptr)
+        return;
     postorder(node->left);
     postorder(node->right);
     cout << node->value << " ";
@@ -148,29 +136,39 @@ void BinaryTree::postorder() {
     cout << endl;
 }
 int BinaryTree::height(TreeNode* node) {
-    if (!node) return 0;
+    if (!node)
+        return 0;
     return max(height(node->left), height(node->right)) + 1;
 }
 
-int BinaryTree::height() { return height(root); }
+int BinaryTree::height() {
+    return height(root);
+}
 int BinaryTree::size(TreeNode* node) {
-    if (!node) return 0;
+    if (!node)
+        return 0;
     return size(node->left) + size(node->right) + 1;
 }
 
-int BinaryTree::size() { return size(root); }
+int BinaryTree::size() {
+    return size(root);
+}
 
 int BinaryTree::getMin() {
-    if (!root) return -1;
+    if (!root)
+        return -1;
     TreeNode* current = root;
-    while (current->left) current = current->left;
+    while (current->left)
+        current = current->left;
     return current->value;
 }
 
 int BinaryTree::getMax() {
-    if (!root) return -1;
+    if (!root)
+        return -1;
     TreeNode* current = root;
-    while (current->right) current = current->right;
+    while (current->right)
+        current = current->right;
     return current->value;
 }
 void BinaryTree::test() {

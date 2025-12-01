@@ -1,3 +1,5 @@
 #include "include/bt.h"
 
-int main() { BinaryTree::test(); }
+int main() {
+    BinaryTree::test();
+}
