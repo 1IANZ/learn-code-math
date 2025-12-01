@@ -1,4 +1,6 @@
 .vscode/
 data_structure/linear/out/
 data_structure/binary_tree/out/
-math/Python/venv
+math/.venv
+math/__pycache__
+math/linear_algebra/__pycache__

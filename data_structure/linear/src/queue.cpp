@@ -1,57 +1,49 @@
 #include "/include/queue.h"
 
 Queue::Queue() {
-    head = nullptr;
+    front = rear = nullptr;
     size = 0;
 }
 
 Queue::~Queue() {
-    while (head) {
-        ListNode* temp = head;
-        head = head->next;
+    while (front) {
+        ListNode* temp = front;
+        front = front->next;
         delete temp;
     }
 }
 
 bool Queue::enqueue(E value) {
     ListNode* newNode = new ListNode(value);
-    if (!head) {
-        head = newNode;
+    if (!front) {
+        front = rear = newNode;
     } else {
-        ListNode* temp = head;
-        while (temp->next) {
-            temp = temp->next;
-        }
-        temp->next = newNode;
+        rear->next = newNode;
+        rear = newNode;
     }
     size++;
     return true;
 }
 
 E Queue::dequeue() {
-    if (head) {
-        E value = head->data;
-        ListNode* temp = head;
-        head = head->next;
+    if (front) {
+        E value = front->data;
+        ListNode* temp = front;
+        front = front->next;
         delete temp;
         size--;
+        if (!front) rear = nullptr;
         return value;
     } else {
         return -1;
     }
 }
 
-int Queue::peek() {
-    return head ? head->data : -1;
-}
+int Queue::peek() { return front ? front->data : -1; }
 
-int Queue::get_size() {
-    return size;
-}
+int Queue::get_size() { return size; }
 
-bool Queue::empty() {
-    return size == 0;
-}
+bool Queue::empty() { return size == 0; }
 
 void Queue::test() {
     cout << "== Queue Test ==" << endl;
@@ -66,7 +58,6 @@ void Queue::test() {
     cout << "Front element after dequeue: " << q.peek() << endl;
     cout << "Queue size after dequeue: " << q.get_size() << endl;
     cout << "Dequeue all elements..." << endl;
-    while (!q.empty())
-        cout << q.dequeue() << " ";
+    while (!q.empty()) cout << q.dequeue() << " ";
     cout << endl;
 }

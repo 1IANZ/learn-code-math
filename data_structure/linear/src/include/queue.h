@@ -3,11 +3,12 @@
 
 #define E int
 class Queue {
-  private:
-    ListNode* head;
+   private:
+    ListNode* front;
+    ListNode* rear;
     int size;
 
-  public:
+   public:
     Queue();
     ~Queue();
     bool enqueue(E value);
