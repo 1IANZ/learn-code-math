@@ -6,5 +6,6 @@ class TreeNode {
     E value;
     TreeNode* left;
     TreeNode* right;
-    TreeNode(int value) : value(value), left(nullptr), right(nullptr) {}
+    int height;
+    TreeNode(int value) : value(value), left(nullptr), right(nullptr), height(1) {}
 };
