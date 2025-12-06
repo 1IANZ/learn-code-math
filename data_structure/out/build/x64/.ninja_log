@@ -1,0 +1,11 @@
+# ninja log v7
+30	647	7866913024412720	CMakeFiles/Demo.dir/src/tree/main.cpp.obj	3053eae55d3f5a9
+12	654	7866916616828050	CMakeFiles/Demo.dir/src/linear/stack.cpp.obj	1778f4cece832a89
+9	672	7866916616798059	CMakeFiles/Demo.dir/src/linear/seq_list.cpp.obj	5c243ca5a29cbae3
+3	626	7866916616738011	CMakeFiles/Demo.dir/src/linear/linked_list.cpp.obj	72875ec5cf233624
+5	675	7866913024159965	CMakeFiles/Demo.dir/src/linear/main.cpp.obj	4f5a0b086cf8c3ed
+19	707	7866916616903243	CMakeFiles/Demo.dir/src/tree/avl.cpp.obj	96dbc40826de3a0c
+6	611	7866916616768043	CMakeFiles/Demo.dir/src/linear/queue.cpp.obj	8f67499971fcc77f
+23	648	7866916616938374	CMakeFiles/Demo.dir/src/tree/bt.cpp.obj	ac69be3220371bf5
+3	468	7866917212781042	CMakeFiles/Demo.dir/src/main.cpp.obj	9cd0c1436d2ee7ff
+468	585	7866917217435819	Demo.exe	896357c542bcbac6

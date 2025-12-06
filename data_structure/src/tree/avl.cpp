@@ -44,6 +44,7 @@ TreeNode* AvlTree::rightRotate(TreeNode* y) {
     x->height = 1 + max(height(x->left), height(x->right));
     return x;
 }
+// 左旋x,返回新的根y
 TreeNode* AvlTree::leftRotate(TreeNode* x) {
     if (!x || !x->right)
         return x;
