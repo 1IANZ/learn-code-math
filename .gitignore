@@ -1,4 +1,5 @@
 .vscode/
+/build
 data_structure/out
 math/.venv
 math/__pycache__
