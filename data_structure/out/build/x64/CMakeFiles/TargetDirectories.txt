@@ -1,3 +1,0 @@
-D:/Code/learn-code-math/data_structure/out/build/x64/CMakeFiles/Demo.dir
-D:/Code/learn-code-math/data_structure/out/build/x64/CMakeFiles/edit_cache.dir
-D:/Code/learn-code-math/data_structure/out/build/x64/CMakeFiles/rebuild_cache.dir
