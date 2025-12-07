@@ -6,6 +6,7 @@
 // #include "tree/include/bt.h"
 // #include "linear/include/max_heap.h"
 // #include "linear/include/min_heap.h"
+#include "tree/include/huffman.h"
 int main() {
     // SeqList::test();
     // LinkedList::test();
@@ -15,4 +16,5 @@ int main() {
     // AvlTree::test();
     // MaxHeap::test();
     // MinHeap::test();
+    HuffmanTree::test();
 }
