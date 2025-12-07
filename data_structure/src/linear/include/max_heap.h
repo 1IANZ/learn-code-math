@@ -1,6 +1,6 @@
 #include <iostream>
 
-class Heap {
+class MaxHeap {
   private:
     int* data;
     int capacity;
@@ -11,8 +11,8 @@ class Heap {
     void siftDown(int index);
 
   public:
-    Heap(int cap = 10);
-    ~Heap();
+    MaxHeap(int cap = 10);
+    ~MaxHeap();
     void push(int val);
     int top();
     int pop();

@@ -4,7 +4,8 @@
 // #include "linear/include/stack.h"
 // #include "tree/include/avl.h"
 // #include "tree/include/bt.h"
-#include "linear/include/heap.h"
+// #include "linear/include/max_heap.h"
+// #include "linear/include/min_heap.h"
 int main() {
     // SeqList::test();
     // LinkedList::test();
@@ -12,5 +13,6 @@ int main() {
     // Queue::test();
     // BinaryTree::test();
     // AvlTree::test();
-    Heap::test();
+    // MaxHeap::test();
+    // MinHeap::test();
 }

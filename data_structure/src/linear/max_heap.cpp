@@ -1,22 +1,22 @@
-#include "include/heap.h"
+#include "include/max_heap.h"
 
-Heap::Heap(int cap) : capacity(cap), size(0) {
+MaxHeap::MaxHeap(int cap) : capacity(cap), size(0) {
     data = new int[capacity];
 }
 
-Heap::~Heap() {
+MaxHeap::~MaxHeap() {
     delete[] data;
 }
 
-bool Heap::empty() {
+bool MaxHeap::empty() {
     return size == 0;
 }
 
-int Heap::getSize() {
+int MaxHeap::getSize() {
     return size;
 }
 
-void Heap::resize() {
+void MaxHeap::resize() {
     int newCap = capacity * 2;
     int* newData = new int[newCap];
     for (int i = 0; i < size; i++) {
@@ -27,7 +27,7 @@ void Heap::resize() {
     capacity = newCap;
 }
 
-void Heap::siftUp(int index) {
+void MaxHeap::siftUp(int index) {
     while (index > 0) {
         int parent = (index - 1) / 2;
         if (data[index] > data[parent]) {
@@ -39,17 +39,15 @@ void Heap::siftUp(int index) {
     }
 }
 
-void Heap::siftDown(int index) {
+void MaxHeap::siftDown(int index) {
     while (true) {
         int left = 2 * index + 1;
         int right = 2 * index + 2;
         int largest = index;
-
         if (left < size && data[left] > data[largest])
             largest = left;
         if (right < size && data[right] > data[largest])
             largest = right;
-
         if (largest != index) {
             std::swap(data[index], data[largest]);
             index = largest;
@@ -59,7 +57,7 @@ void Heap::siftDown(int index) {
     }
 }
 
-void Heap::push(int val) {
+void MaxHeap::push(int val) {
     if (size == capacity)
         resize();
     data[size] = val;
@@ -67,26 +65,24 @@ void Heap::push(int val) {
     size++;
 }
 
-int Heap::top() {
+int MaxHeap::top() {
     if (empty())
-        throw std::runtime_error("Heap is empty");
+        return -1;
     return data[0];
 }
 
-int Heap::pop() {
+int MaxHeap::pop() {
     if (empty())
-        throw std::runtime_error("Heap is empty");
-
+        return -1;
     int ret = data[0];
     data[0] = data[size - 1];
     size--;
     siftDown(0);
-
     return ret;
 }
 
-void Heap::test() {
-    Heap h;
+void MaxHeap::test() {
+    MaxHeap h;
 
     std::cout << "Pushing: 30 20 40 10 50\n";
     h.push(30);
