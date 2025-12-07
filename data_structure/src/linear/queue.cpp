@@ -32,18 +32,25 @@ E Queue::dequeue() {
         front = front->next;
         delete temp;
         size--;
-        if (!front) rear = nullptr;
+        if (!front)
+            rear = nullptr;
         return value;
     } else {
         return -1;
     }
 }
 
-int Queue::peek() { return front ? front->data : -1; }
+int Queue::peek() {
+    return front ? front->data : -1;
+}
 
-int Queue::get_size() { return size; }
+int Queue::get_size() {
+    return size;
+}
 
-bool Queue::empty() { return size == 0; }
+bool Queue::empty() {
+    return size == 0;
+}
 
 void Queue::test() {
     cout << "== Queue Test ==" << endl;
@@ -58,6 +65,7 @@ void Queue::test() {
     cout << "Front element after dequeue: " << q.peek() << endl;
     cout << "Queue size after dequeue: " << q.get_size() << endl;
     cout << "Dequeue all elements..." << endl;
-    while (!q.empty()) cout << q.dequeue() << " ";
+    while (!q.empty())
+        cout << q.dequeue() << " ";
     cout << endl;
 }
