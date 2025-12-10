@@ -9,6 +9,3 @@ file(GLOB_RECURSE  SOURCES "src/*.cpp")
 add_executable(Demo ${SOURCES})
 
 target_include_directories(Demo PRIVATE src)
-
-
-

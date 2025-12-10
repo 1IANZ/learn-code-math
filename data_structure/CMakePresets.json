@@ -1,18 +1,18 @@
 {
-  "version": 8,
-  "configurePresets": [
-    {
-      "name": "x64",
-      "displayName": "Clang 20.1.8 x86_64-pc-windows-msvc",
-      "description": "Using compilers: C = D:\\Miscellaneous\\LLVM\\bin\\clang.exe, CXX = D:\\Miscellaneous\\LLVM\\bin\\clang++.exe",
-      "binaryDir": "${sourceDir}/out/build/${presetName}",
-      "generator": "Ninja",
-      "cacheVariables": {
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
-        "CMAKE_C_COMPILER": "D:/Miscellaneous/LLVM/bin/clang.exe",
-        "CMAKE_CXX_COMPILER": "D:/Miscellaneous/LLVM/bin/clang++.exe",
-        "CMAKE_BUILD_TYPE": "Debug"
-      }
-    }
-  ]
+	"version": 8,
+	"configurePresets": [
+		{
+			"name": "x64",
+			"displayName": "Clang 20.1.8 x86_64-pc-windows-msvc",
+			"description": "Using compilers: C = D:\\Miscellaneous\\LLVM\\bin\\clang.exe, CXX = D:\\Miscellaneous\\LLVM\\bin\\clang++.exe",
+			"binaryDir": "${sourceDir}/out/build/${presetName}",
+			"generator": "Ninja",
+			"cacheVariables": {
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+				"CMAKE_C_COMPILER": "D:/Miscellaneous/LLVM/bin/clang.exe",
+				"CMAKE_CXX_COMPILER": "D:/Miscellaneous/LLVM/bin/clang++.exe",
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		}
+	]
 }
