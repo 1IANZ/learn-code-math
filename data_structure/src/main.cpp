@@ -8,9 +8,9 @@
 // #include "linear/include/min_heap.h"
 // #include "tree/include/huffman.h"
 // #include "graph/include/graph_adjacency_matrix.h"
-#include "graph/include/graph_adjacency_list.h"
-int main() {
-    // SeqList::test();
+// #include "graph/include/graph_adjacency_list.h"
+// #include "graph/include/graph_traversal.h"
+int main() { // SeqList::test();
     // LinkedList::test();
     // Stack::test();
     // Queue::test();
@@ -18,5 +18,5 @@ int main() {
     // AvlTree::test();
     // MaxHeap::test();
     // MinHeap::test();
-    GraphAdjList::test();
+    // graphTest();
 }

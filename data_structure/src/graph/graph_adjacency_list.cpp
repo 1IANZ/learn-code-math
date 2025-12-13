@@ -1,5 +1,7 @@
 #include "include/graph_adjacency_list.h"
-
+const vector<Vertex*>& GraphAdjList::getNeighbors(Vertex* vet) const {
+    return adjList.at(vet);
+}
 void GraphAdjList::remove(vector<Vertex*>& vec, Vertex* vet) {
     for (auto it = vec.begin(); it != vec.end(); ++it) {
         if (*it == vet) {

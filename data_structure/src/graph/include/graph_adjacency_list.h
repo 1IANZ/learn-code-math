@@ -20,5 +20,6 @@ class GraphAdjList {
     void addEdge(Vertex* vet1, Vertex* vet2);
     void removeEdge(Vertex* vet1, Vertex* vet2);
     void print();
+    const vector<Vertex*>& getNeighbors(Vertex* vet) const;
     static void test();
 };
